@@ -1,0 +1,15 @@
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\bin\Debug\netcoreapp3.1\ServiceMonitoring.Model.deps.json
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\bin\Debug\netcoreapp3.1\ServiceMonitoring.Model.runtimeconfig.json
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\bin\Debug\netcoreapp3.1\ServiceMonitoring.Model.runtimeconfig.dev.json
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\bin\Debug\netcoreapp3.1\ServiceMonitoring.Model.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\bin\Debug\netcoreapp3.1\ServiceMonitoring.Model.pdb
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\bin\Debug\netcoreapp3.1\ServiceMonitoring.Core.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\bin\Debug\netcoreapp3.1\ServiceMonitoring.Core.pdb
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\obj\Debug\netcoreapp3.1\ServiceMonitoring.Model.csprojAssemblyReference.cache
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\obj\Debug\netcoreapp3.1\ServiceMonitoring.Model.AssemblyInfoInputs.cache
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\obj\Debug\netcoreapp3.1\ServiceMonitoring.Model.AssemblyInfo.cs
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\obj\Debug\netcoreapp3.1\ServiceMonitoring.Model.csproj.CoreCompileInputs.cache
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\obj\Debug\netcoreapp3.1\ServiceMonitoring.Model.csproj.CopyComplete
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\obj\Debug\netcoreapp3.1\ServiceMonitoring.Model.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\obj\Debug\netcoreapp3.1\ServiceMonitoring.Model.pdb
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Model\obj\Debug\netcoreapp3.1\ServiceMonitoring.Model.genruntimeconfig.cache

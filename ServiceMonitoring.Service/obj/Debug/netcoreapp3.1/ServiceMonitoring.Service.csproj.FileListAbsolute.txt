@@ -1,0 +1,14 @@
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\bin\Debug\netcoreapp3.1\ServiceMonitoring.Service.deps.json
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\bin\Debug\netcoreapp3.1\ServiceMonitoring.Service.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\bin\Debug\netcoreapp3.1\ServiceMonitoring.Service.pdb
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\bin\Debug\netcoreapp3.1\ServiceMonitoring.Core.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\bin\Debug\netcoreapp3.1\ServiceMonitoring.Model.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\bin\Debug\netcoreapp3.1\ServiceMonitoring.Model.pdb
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\bin\Debug\netcoreapp3.1\ServiceMonitoring.Core.pdb
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\obj\Debug\netcoreapp3.1\ServiceMonitoring.Service.csprojAssemblyReference.cache
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\obj\Debug\netcoreapp3.1\ServiceMonitoring.Service.AssemblyInfoInputs.cache
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\obj\Debug\netcoreapp3.1\ServiceMonitoring.Service.AssemblyInfo.cs
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\obj\Debug\netcoreapp3.1\ServiceMonitoring.Service.csproj.CoreCompileInputs.cache
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\obj\Debug\netcoreapp3.1\ServiceMonitoring.Service.csproj.CopyComplete
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\obj\Debug\netcoreapp3.1\ServiceMonitoring.Service.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Service\obj\Debug\netcoreapp3.1\ServiceMonitoring.Service.pdb
