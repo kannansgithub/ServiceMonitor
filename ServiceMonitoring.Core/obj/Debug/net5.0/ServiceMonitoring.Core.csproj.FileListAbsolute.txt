@@ -1,0 +1,15 @@
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\bin\Debug\net5.0\ServiceMonitoring.Core.deps.json
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\bin\Debug\net5.0\ServiceMonitoring.Core.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\bin\Debug\net5.0\ref\ServiceMonitoring.Core.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\bin\Debug\net5.0\ServiceMonitoring.Core.pdb
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\obj\Debug\net5.0\ServiceMonitoring.Core.csprojAssemblyReference.cache
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\obj\Debug\net5.0\ServiceMonitoring.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\obj\Debug\net5.0\ServiceMonitoring.Core.AssemblyInfoInputs.cache
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\obj\Debug\net5.0\ServiceMonitoring.Core.AssemblyInfo.cs
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\obj\Debug\net5.0\ServiceMonitoring.Core.csproj.CoreCompileInputs.cache
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\obj\Debug\net5.0\ServiceMonitoring.Core.csproj.CopyComplete
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\obj\Debug\net5.0\ServiceMonitoring.Core.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\obj\Debug\net5.0\ref\ServiceMonitoring.Core.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\obj\Debug\net5.0\ServiceMonitoring.Core.pdb

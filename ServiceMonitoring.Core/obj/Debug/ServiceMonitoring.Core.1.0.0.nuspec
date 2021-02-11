@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ServiceMonitoring.Core</id>
+    <version>1.0.0</version>
+    <authors>ServiceMonitoring.Core</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0">
+        <dependency id="Microsoft.Data.SqlClient" version="2.0.1" exclude="Build,Analyzers" />
+        <dependency id="System.Management" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.ServiceProcess.ServiceController" version="5.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Core\bin\Debug\net5.0\ServiceMonitoring.Core.dll" target="lib\net5.0\ServiceMonitoring.Core.dll" />
+  </files>
+</package>

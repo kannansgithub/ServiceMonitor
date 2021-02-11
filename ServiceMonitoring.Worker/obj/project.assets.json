@@ -1607,7 +1607,7 @@
       },
       "ServiceMonitoring.Core/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
+        "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Microsoft.Data.SqlClient": "2.0.1",
           "System.Management": "5.0.0",

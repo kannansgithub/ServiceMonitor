@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "b3SYANyAPeeTecbrYvIw/kDfyZXKgmBRU4yy6TPBnYMrhZGr17CIUfsFzKPhSnX1M96szkM88YmQAQM1+FZzvA==",
+  "dgSpecHash": "s1lR9YCVZLGxI6RjfTKhHZDiPgGc1YLmzgAqDigQ8PMz18fQsEp/AEz8YnbIEF3v/C3um1V7HtPaZHHCBUuyzA==",
   "success": true,
   "projectFilePath": "D:\\Projects\\ServiceMonitoring\\Server\\ServiceMonitoring.API\\ServiceMonitoring.API\\ServiceMonitoring.API.csproj",
   "expectedPackageFiles": [
