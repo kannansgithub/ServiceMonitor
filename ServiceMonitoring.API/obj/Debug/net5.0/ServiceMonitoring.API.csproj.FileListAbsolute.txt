@@ -84,3 +84,6 @@ D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.API
 D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.API\bin\Debug\net5.0\ServiceMonitoring.Service.pdb
 D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.API\bin\Debug\net5.0\Humanizer.dll
 D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.API\bin\Debug\net5.0\System.CodeDom.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.API\bin\Debug\net5.0\System.Management.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.API\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Management.dll

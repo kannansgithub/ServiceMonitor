@@ -7,5 +7,6 @@ namespace ServiceMonitoring.Core.Response
         public bool SuccessfulStatus { get; set; } = false;
         public string Message { get; set; }
         public string Description { get; set; }
+        public string AccessedUser { get; set; }
     }
 }

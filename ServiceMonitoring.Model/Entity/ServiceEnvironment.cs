@@ -23,8 +23,18 @@ namespace ServiceMonitoring.Model.Entity
         [Column(Order = 8)]
         public string Description { get; set; }
         [Column(Order = 9)]
-        public Guid ServiceId { get; set; }
+        public string UsernameKey { get; set; }
         [Column(Order = 10)]
+        public string PasswordKey { get; set; }
+        [Column(Order = 11)]
+        public string ServerName { get; set; }
+        [Column(Order = 12)]
+        public bool FailedNotificationRequired { get; set; } = true;
+        [Column(Order = 13)]
+        public string NotificationMailIds { get; set; }
+        [Column(Order = 12)]
+        public Guid ServiceId { get; set; }
+        [Column(Order = 14)]
         public Guid EnvironmentId { get; set; }
         public Service Service { get; set; }
         public Environment Environment { get; set; }

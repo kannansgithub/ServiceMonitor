@@ -51,26 +51,26 @@ namespace ServiceMonitoring.Model.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c92b798a-9325-43b3-8f59-4a5986fd96bb"),
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(4),
+                            Id = new Guid("a5b4bbc4-5606-42fd-86be-b337d770fb09"),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 501, DateTimeKind.Local).AddTicks(9245),
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(18),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 501, DateTimeKind.Local).AddTicks(9267),
                             Name = "Development"
                         },
                         new
                         {
-                            Id = new Guid("05449736-b7ff-4e46-b26d-ab8c73d2de25"),
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(778),
+                            Id = new Guid("7999137c-5d0f-4b03-ad02-bdda553ed106"),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(73),
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(786),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(81),
                             Name = "Quality"
                         },
                         new
                         {
-                            Id = new Guid("fe205020-2b75-4cf6-a079-eb37d8346a52"),
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(790),
+                            Id = new Guid("bf80c1b6-3f10-475f-995d-23855eafd789"),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(85),
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(791),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(86),
                             Name = "Production"
                         });
                 });
@@ -175,50 +175,50 @@ namespace ServiceMonitoring.Model.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9aeaff71-2d98-4b5e-8245-6039b61e7d1b"),
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 853, DateTimeKind.Local).AddTicks(1084),
+                            Id = new Guid("de6910ee-006d-420c-bdfc-7c8ee76d09c7"),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 498, DateTimeKind.Local).AddTicks(5192),
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(3317),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(8345),
                             Name = "Database"
                         },
                         new
                         {
-                            Id = new Guid("051c5d53-0c21-4aac-b468-cfba72f42a57"),
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(4282),
+                            Id = new Guid("727429ce-cef4-4dcf-b19a-dce07bb3b347"),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(9927),
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(4291),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(9935),
                             Name = "RESTful API"
                         },
                         new
                         {
-                            Id = new Guid("f5d008f4-7e5a-4486-b097-fd1f25f7443a"),
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(4296),
+                            Id = new Guid("224c2ab1-00e2-47bc-bd69-d0661622d440"),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(9941),
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(4297),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(9942),
                             Name = "Server"
                         },
                         new
                         {
-                            Id = new Guid("021e1a87-8626-4a40-a646-0616e13777d7"),
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(4300),
+                            Id = new Guid("7900f030-5d7c-43ae-bed2-e2053e5e19e5"),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(9946),
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(4301),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(9947),
                             Name = "URL"
                         },
                         new
                         {
-                            Id = new Guid("605b7399-adec-47e0-96e5-9a08c6d3b000"),
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(4304),
+                            Id = new Guid("fa4920d8-a981-49b1-a008-58a7d535ab17"),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(9950),
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(4305),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(9951),
                             Name = "Web Service"
                         },
                         new
                         {
-                            Id = new Guid("019a6091-09f7-4d6c-b609-a039faf1cb7c"),
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(4307),
+                            Id = new Guid("6c2a8432-9f1e-4327-9cc4-13a094b68df9"),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(9954),
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 854, DateTimeKind.Local).AddTicks(4309),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 499, DateTimeKind.Local).AddTicks(9955),
                             Name = "Windows Service"
                         });
                 });
@@ -248,6 +248,9 @@ namespace ServiceMonitoring.Model.Migrations
                     b.Property<Guid>("EnvironmentId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<bool>("FailedNotificationRequired")
+                        .HasColumnType("bit");
+
                     b.Property<int>("Interval")
                         .HasColumnType("int");
 
@@ -260,6 +263,15 @@ namespace ServiceMonitoring.Model.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("NotificationMailIds")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordKey")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ServerName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("ServiceId")
                         .HasColumnType("uniqueidentifier");
 
@@ -267,6 +279,9 @@ namespace ServiceMonitoring.Model.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsernameKey")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WindowsServiceName")
@@ -507,42 +522,42 @@ namespace ServiceMonitoring.Model.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("f059cc22-01de-442c-ab04-ffbc9ff3ab04"),
+                            Id = new Guid("1cf00737-a45a-4b20-8306-3a34a135fc80"),
                             AssemblyQualifiedName = "ServiceMonitoring.Core.Watchers.SqlServerDatabaseWatcher, ServiceMonitoring.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(1802),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(1398),
                             Description = "Watcher for SQL Server databases",
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(1810),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(1407),
                             Name = "SqlServerDatabaseWatcher"
                         },
                         new
                         {
-                            Id = new Guid("48665a08-2566-461c-be7c-be5280562264"),
+                            Id = new Guid("608aeaf9-8fd1-4b94-9b4c-1a37bdb3552a"),
                             AssemblyQualifiedName = "ServiceMonitoring.Core.Watchers.HttpRequestWatcher, ServiceMonitoring.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(4440),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(3894),
                             Description = "Watcher for http requests",
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(4450),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(3904),
                             Name = "HttpRequestWatcher"
                         },
                         new
                         {
-                            Id = new Guid("62067c36-7ed5-4650-9395-f1c55a293471"),
+                            Id = new Guid("fb93a7b0-57d5-4b92-af05-1d1642e9ae03"),
                             AssemblyQualifiedName = "ServiceMonitoring.Core.Watchers.PingWatcher, ServiceMonitoring.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(4520),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(3970),
                             Description = "Watcher for ping requests",
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(4522),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(3973),
                             Name = "PingWatcher"
                         },
                         new
                         {
-                            Id = new Guid("6f49f783-3c07-45c6-8ee9-3280944078d8"),
+                            Id = new Guid("ca00c79e-8521-465e-9670-fd8bdd6f8387"),
                             AssemblyQualifiedName = "ServiceMonitoring.Core.Watchers.WindowsServiceWatcher, ServiceMonitoring.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                            CreatedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(4572),
+                            CreatedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(4003),
                             Description = "Watcher for Windows Services",
                             IsActive = true,
-                            ModifiedOn = new DateTime(2021, 2, 9, 9, 26, 20, 856, DateTimeKind.Local).AddTicks(4575),
+                            ModifiedOn = new DateTime(2021, 2, 11, 13, 40, 56, 502, DateTimeKind.Local).AddTicks(4005),
                             Name = "WindowsServiceWatcher"
                         });
                 });

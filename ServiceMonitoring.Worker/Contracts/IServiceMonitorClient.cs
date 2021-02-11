@@ -6,7 +6,7 @@ namespace ServiceMonitoring.Worker.Contracts
 {
     public interface IServiceMonitorClient
     {
-        Task<ServiceWatchResponse> GetServiceWatcherItemsAsync();
+        Task<ServiceWatchResponse> GetWatcherItemsAsync();
 
         Task<HttpResponseMessage> PostServiceStatusLog(ServiceStatusLogRequest request);
     }

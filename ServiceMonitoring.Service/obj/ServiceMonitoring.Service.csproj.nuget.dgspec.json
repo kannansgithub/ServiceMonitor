@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[2.0.1, )"
             },
+            "System.Management": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "System.ServiceProcess.ServiceController": {
               "target": "Package",
               "version": "[5.0.0, )"

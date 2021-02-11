@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using ServiceMonitoring.API.Responses;
 using ServiceMonitoring.Service.Contracts;
+using System;
 using System.Threading.Tasks;
 
 namespace ServiceMonitoring.API.Controllers
@@ -12,31 +13,44 @@ namespace ServiceMonitoring.API.Controllers
     public class DashboardController : ControllerBase
     {
         protected readonly ILogger Logger;
-        protected readonly IReadService Service;
+        protected readonly IReadService ReadService;
 
-        public DashboardController(ILogger<DashboardController> logger, IReadService service)
+        public DashboardController(ILogger<DashboardController> logger, IReadService readService)
         {
             Logger = logger;
-            Service = service;
+            ReadService = readService;
         }
-#pragma warning restore CS1591
-
-        /// <summary>
-        /// Gets service watcher items (registered services to watch with service monitor)
-        /// </summary>
-        /// <returns>A sequence of services to watch</returns>
-        /// <response code="200">A list of services to watch</response>
-        /// <response code="500">If there was an internal server error</response>
-        [HttpGet("ServiceWatcherItem")]
+        [HttpGet("GetEnvironment")]
         [ProducesResponseType(200)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> GetServiceWatcherItemsAsync()
+        public async Task<IActionResult> GetEnvironment()
         {
-            Logger?.LogDebug("'{0}' has been invoked", nameof(GetServiceWatcherItemsAsync));
+            Logger?.LogDebug("'{0}' has been invoked", nameof(GetEnvironment));
 
-            var response = await Service.GetActiveServiceWatcherItemsAsync();
+            var response = await ReadService.GetAllEnvironment();
 
             return response.ToHttpResponse();
+        }
+        [HttpGet("{categoryName}/{environmentId}/GetServiceData")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetServiceData(string categoryName, Guid environmentId)
+        {
+            Logger?.LogDebug("'{0}' has been invoked", nameof(GetEnvironment));
+
+            var response = await ReadService.GetServiceDataAsync(categoryName, environmentId);
+
+            return response.ToHttpResponse();
+        }
+        [HttpGet("{environmentId}/LoadDatabaseData")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> LoadDatabaseData(Guid environmentId)
+        {
+            Logger?.LogDebug("'{0}' has been invoked", nameof(LoadDatabaseData));
+
+            var response = await ReadService.LoadDatabaseDataAsync(environmentId);
+            return response.ToHttpCreatedResponse();
         }
     }
 }

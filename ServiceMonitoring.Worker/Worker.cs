@@ -25,7 +25,6 @@ namespace ServiceMonitoring.Worker
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await StartAsync();
-                //https://github.com/hherzl/ServiceMonitor.NetCore/tree/master/Source/Backend/ServiceMonitor
                 await Task.Delay(_configuration.GetValue<int>("appSettings:delayTime"), stoppingToken);
             }
         }
@@ -36,11 +35,11 @@ namespace ServiceMonitoring.Worker
 
             var client = new ServiceMonitorClient(_configuration.GetValue<string>("appSettings:baseUrl"));
 
-            ServiceWatchResponse serviceWatcherItemsResponse = null;
+            ServiceWatchResponse serviceWatcherItemsResponse;
 
             try
             {
-                serviceWatcherItemsResponse = await client.GetServiceWatcherItemsAsync();
+                serviceWatcherItemsResponse = await client.GetWatcherItemsAsync();
             }
             catch (Exception ex)
             {
@@ -51,13 +50,11 @@ namespace ServiceMonitoring.Worker
             foreach (var item in serviceWatcherItemsResponse.Model)
             {
                 var watcherType = Type.GetType(item.TypeName, true);
-
                 var watcherInstance = (IWatcher)Activator.CreateInstance(watcherType);
-
                 await Task.Factory.StartNew(async () =>
                 {
                     var controller = new MonitorService(_logger, watcherInstance, client);
-                    await controller.ProcessAsync(item);
+                    await controller.ProcessAsync(item, _configuration.GetValue<int>("appSettings:delayTime"));
                 });
             }
         }

@@ -21,18 +21,18 @@ namespace ServiceMonitoring.Service
             _dbContext = dbContext;
         }
 
-        public async Task<ListResponse<ServiceWatcherItemInfo>> GetActiveServiceWatcherItemsAsync()
+        public async Task<ListResponse<ServiceWatcherItemInfo>> GetWatcherItem()
         {
-            Logger?.LogDebug("'{0}' has been invoked", nameof(GetActiveServiceWatcherItemsAsync));
+            Logger?.LogDebug("'{0}' has been invoked", nameof(GetWatcherItem));
             var response = new ListResponse<ServiceWatcherItemInfo>();
             try
             {
-                response.Model = await _dbContext.GetActiveServiceWatcherItems().ToListAsync();
+                response.Model = await _dbContext.GetWatcherItem().ToListAsync();
                 Logger?.LogInformation("The service watch items were loaded successfully");
             }
             catch (Exception ex)
             {
-                response.SetError(Logger, nameof(GetActiveServiceWatcherItemsAsync), ex);
+                response.SetError(Logger, nameof(GetWatcherItem), ex);
             }
 
             return response;
@@ -41,23 +41,65 @@ namespace ServiceMonitoring.Service
         public async Task<ListResponse<ServiceStatusDetailInfo>> GetServiceStatusesAsync(Guid userId)
         {
             Logger?.LogDebug("'{0}' has been invoked", nameof(GetServiceStatusesAsync));
-
             var response = new ListResponse<ServiceStatusDetailInfo>();
 
             try
             {
                 response.Model = await _dbContext.GetServiceStatuses(userId).ToListAsync();
-
-                if (response.Model?.Count() == 0)
-                    Logger?.LogInformation("There is no data for user with ID '{0}'", userId);
-                else
-                    Logger?.LogInformation("The service status details for user with ID '{0}' were loaded successfully", userId);
+                Logger?.LogInformation(
+                    response.Model?.Count() == 0
+                        ? "There is no data for user with ID '{0}'"
+                        : "The service status details for user with ID '{0}' were loaded successfully", userId);
             }
             catch (Exception ex)
             {
                 response.SetError(Logger, nameof(GetServiceStatusesAsync), ex);
             }
 
+            return response;
+        }
+        public async Task<SingleResponse<DashboardInfo>> LoadDatabaseDataAsync(Guid? environmentId)
+        {
+            Logger?.LogDebug("'{0}' has been invoked", nameof(LoadDatabaseDataAsync));
+            var response = new SingleResponse<DashboardInfo>();
+            try
+            {
+                response.Model = await Task.Factory.StartNew(() => _dbContext.GetDashboardData(environmentId));
+            }
+            catch (Exception ex)
+            {
+                response.SetError(Logger, nameof(LoadDatabaseDataAsync), ex);
+            }
+
+            return response;
+        }
+        public async Task<ListResponse<ServiceResponse>> GetServiceDataAsync(string categoryName, Guid? environmentId)
+        {
+            Logger?.LogDebug("'{0}' has been invoked", nameof(LoadDatabaseDataAsync));
+            var response = new ListResponse<ServiceResponse>();
+            try
+            {
+                response.Model = await _dbContext.GetServiceData(categoryName, environmentId).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                response.SetError(Logger, nameof(LoadDatabaseDataAsync), ex);
+            }
+
+            return response;
+        }
+        public async Task<ListResponse<DropdownValue>> GetAllEnvironment()
+        {
+            Logger?.LogDebug("'{0}' has been invoked", nameof(LoadDatabaseDataAsync));
+            var response = new ListResponse<DropdownValue>();
+            try
+            {
+                response.Model = await _dbContext.GetAllEnvironment().ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                response.SetError(Logger, nameof(LoadDatabaseDataAsync), ex);
+            }
             return response;
         }
     }

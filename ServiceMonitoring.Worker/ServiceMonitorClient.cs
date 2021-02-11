@@ -15,21 +15,18 @@ namespace ServiceMonitoring.Worker
         public ServiceMonitorClient(string baseUrl)
         {
             _client = new HttpClient();
-
             _url = new ApiUrlBinder(baseUrl: baseUrl);
         }
 
-        public async Task<ServiceWatchResponse> GetServiceWatcherItemsAsync()
+        public async Task<ServiceWatchResponse> GetWatcherItemsAsync()
         {
             var url = _url
-                .Controller("Dashboard")
-                .Action("ServiceWatcherItem")
+                .Controller("Administration")
+                .Action("GetWatcherItem")
                 .ToString();
 
             var response = await _client.GetAsync(url);
-
             var content = await response.Content.ReadAsStringAsync();
-
             return SerializationHelper.Deserialize<ServiceWatchResponse>(content);
         }
 
@@ -37,7 +34,7 @@ namespace ServiceMonitoring.Worker
         {
             var url = _url
                 .Controller("Administration")
-                .Action("ServiceEnvironmentStatusLog")
+                .Action("CreateStatusLog")
                 .ToString();
 
             return await _client.PostAsync(url, ContentHelper.GetStringContent(request));

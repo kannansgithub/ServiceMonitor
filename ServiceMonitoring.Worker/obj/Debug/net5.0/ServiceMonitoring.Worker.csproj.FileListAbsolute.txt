@@ -80,3 +80,6 @@ D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Wor
 D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Worker\obj\Debug\net5.0\ref\ServiceMonitoring.Worker.dll
 D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Worker\obj\Debug\net5.0\ServiceMonitoring.Worker.pdb
 D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Worker\obj\Debug\net5.0\ServiceMonitoring.Worker.genruntimeconfig.cache
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Worker\bin\Debug\net5.0\System.CodeDom.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Worker\bin\Debug\net5.0\System.Management.dll
+D:\Projects\ServiceMonitoring\Server\ServiceMonitoring.API\ServiceMonitoring.Worker\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Management.dll

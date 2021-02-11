@@ -13,7 +13,7 @@ namespace ServiceMonitoring.Worker.Models
 
         public string ServiceName { get; set; }
 
-        public int Interval { get; set; }
+        public int? Interval { get; set; }
 
         public string Url { get; set; }
 
