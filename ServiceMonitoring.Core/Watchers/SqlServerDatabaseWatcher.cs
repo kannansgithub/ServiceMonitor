@@ -19,6 +19,8 @@ namespace ServiceMonitoring.Core.Watchers
             await using var connection = new SqlConnection(parameter.Values["ConnectionString"]);
             try
             {
+                response.NotificationEmailIds = parameter.Values["NotificationMailIds"];
+                response.NotificationRequired = Convert.ToBoolean(parameter.Values["FailedNotificationRequired"]);
                 await connection.OpenAsync();
                 response.SuccessfulStatus = true;
             }

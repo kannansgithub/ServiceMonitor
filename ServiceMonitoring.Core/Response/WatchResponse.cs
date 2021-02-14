@@ -8,5 +8,7 @@ namespace ServiceMonitoring.Core.Response
         public string Message { get; set; }
         public string Description { get; set; }
         public string AccessedUser { get; set; }
+        public bool NotificationRequired { get; set; }
+        public string NotificationEmailIds { get; set; }
     }
 }

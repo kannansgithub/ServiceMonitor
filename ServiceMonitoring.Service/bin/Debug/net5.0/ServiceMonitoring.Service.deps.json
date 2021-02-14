@@ -12,7 +12,8 @@
           "Microsoft.Extensions.Logging": "5.0.0",
           "Serilog.AspNetCore": "3.4.0",
           "Serilog.Extensions.Logging.File": "2.0.0",
-          "ServiceMonitoring.Model": "1.0.0"
+          "ServiceMonitoring.Model": "1.0.0",
+          "System.Linq.Dynamic.Core": "1.2.8"
         },
         "runtime": {
           "ServiceMonitoring.Service.dll": {}
@@ -785,6 +786,14 @@
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0"
+        }
+      },
+      "System.Linq.Dynamic.Core/1.2.8": {
+        "runtime": {
+          "lib/netcoreapp2.1/System.Linq.Dynamic.Core.dll": {
+            "assemblyVersion": "1.2.8.0",
+            "fileVersion": "1.2.8.0"
+          }
         }
       },
       "System.Linq.Expressions/4.3.0": {
@@ -1803,6 +1812,13 @@
       "sha512": "sha512-5DbqIUpsDp0dFftytzuMmc0oeMdQwjcP/EWxsksIz/w1TcFRkZ3yKKz0PqiYFMmEwPSWw+qNVqD7PJ889JzHbw==",
       "path": "system.linq/4.3.0",
       "hashPath": "system.linq.4.3.0.nupkg.sha512"
+    },
+    "System.Linq.Dynamic.Core/1.2.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pt/p0YRKysUIwf/ihyVOftcITaQYBXQt/BxUfezsR/d7iXRDhYBwg+iYnL4zxX5i1qXVG0C/dwnmroWblmdH5A==",
+      "path": "system.linq.dynamic.core/1.2.8",
+      "hashPath": "system.linq.dynamic.core.1.2.8.nupkg.sha512"
     },
     "System.Linq.Expressions/4.3.0": {
       "type": "package",

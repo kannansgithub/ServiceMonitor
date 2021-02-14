@@ -2,7 +2,6 @@
 using ServiceMonitoring.Core.Request;
 using ServiceMonitoring.Core.Response;
 using System;
-using System.Management;
 using System.Threading.Tasks;
 namespace ServiceMonitoring.Core.Watchers
 {
@@ -28,25 +27,29 @@ namespace ServiceMonitoring.Core.Watchers
         private static WatchResponse GetServiceStatus(WatcherParameter parameter)
         {
             var response = new WatchResponse();
-            var connection = new ConnectionOptions
-            {
-                Username = Environment.GetEnvironmentVariable(parameter.Values["UsernameKey"]),
-                Password = Environment.GetEnvironmentVariable(parameter.Values["PasswordKey"]),
-                Authority = $"ntlmdomain:{parameter.Values["Authority"]}"
-            };
-            var scope = new ManagementScope($"\\\\{parameter.Values["ServerName"]}\\root\\CIMV2", connection);
-            scope.Connect();
-            if (!scope.IsConnected) return response;
-            var query = new ObjectQuery($"SELECT Name,State,StartName FROM Win32_Service WHERE Name='{parameter.Values["WindowsServiceName"]}'");
-            var searcher = new ManagementObjectSearcher(scope, query);
-            var services = searcher.Get();
-            foreach (var queryObj in services)
-            {
-                response.SuccessfulStatus =
-                    Convert.ToString(queryObj["State"])?.ToUpperInvariant() == "RUNNING";
-                response.Message = "No Issues on Service";
-                response.AccessedUser = Convert.ToString(queryObj["StartName"]);
-            }
+            //var connection = new ConnectionOptions
+            //{
+            //    Username = Environment.GetEnvironmentVariable(parameter.Values["UsernameKey"]),
+            //    Password = Environment.GetEnvironmentVariable(parameter.Values["PasswordKey"]),
+            //    Authority = $"ntlmdomain:{parameter.Values["Authority"]}"
+            //};
+            //var scope = new ManagementScope($"\\\\{parameter.Values["ServerName"]}\\root\\CIMV2", connection);
+            //scope.Connect();
+            //if (!scope.IsConnected) return response;
+            //var query = new ObjectQuery($"SELECT Name,State,StartName FROM Win32_Service WHERE Name='{parameter.Values["WindowsServiceName"]}'");
+            //var searcher = new ManagementObjectSearcher(scope, query);
+            //var services = searcher.Get();
+            //foreach (var queryObj in services)
+            //{
+            //    response.SuccessfulStatus =
+            //        Convert.ToString(queryObj["State"])?.ToUpperInvariant() == "RUNNING";
+            //    response.Message = "No Issues on Service";
+            //    response.AccessedUser = Convert.ToString(queryObj["StartName"]);
+            //}
+            response.NotificationEmailIds = parameter.Values["NotificationMailIds"];
+            response.NotificationRequired = Convert.ToBoolean(parameter.Values["FailedNotificationRequired"]);
+            response.Message = "Issues on running service";
+            response.SuccessfulStatus = false;
             return response;
         }
     }

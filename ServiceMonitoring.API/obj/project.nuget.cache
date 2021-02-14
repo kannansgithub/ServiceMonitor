@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "s1lR9YCVZLGxI6RjfTKhHZDiPgGc1YLmzgAqDigQ8PMz18fQsEp/AEz8YnbIEF3v/C3um1V7HtPaZHHCBUuyzA==",
+  "dgSpecHash": "Ih38q5boB3yyIm3KjkgsX4kiLsNPIOO1wmCneq6raAr2p+tL2yKgly+eLBJCaTTIQCcJTj5JAG3UmveW2e+yhw==",
   "success": true,
   "projectFilePath": "D:\\Projects\\ServiceMonitoring\\Server\\ServiceMonitoring.API\\ServiceMonitoring.API\\ServiceMonitoring.API.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,9 @@
     "C:\\Users\\Tanishka\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.1\\microsoft.aspnetcore.authentication.jwtbearer.5.0.1.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.1\\microsoft.aspnetcore.authentication.openidconnect.5.0.1.nupkg.sha512",
+    "C:\\Users\\Tanishka\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\5.0.3\\microsoft.aspnetcore.connections.abstractions.5.0.3.nupkg.sha512",
+    "C:\\Users\\Tanishka\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.3\\microsoft.aspnetcore.http.features.5.0.3.nupkg.sha512",
+    "C:\\Users\\Tanishka\\.nuget\\packages\\microsoft.aspnetcore.signalr.common\\5.0.3\\microsoft.aspnetcore.signalr.common.5.0.3.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
@@ -89,7 +92,9 @@
     "C:\\Users\\Tanishka\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\Tanishka\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\Tanishka\\.nuget\\packages\\system.linq.dynamic.core\\1.2.8\\system.linq.dynamic.core.1.2.8.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\system.linq.expressions\\4.1.0\\system.linq.expressions.4.1.0.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\system.management\\5.0.0\\system.management.5.0.0.nupkg.sha512",
     "C:\\Users\\Tanishka\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",

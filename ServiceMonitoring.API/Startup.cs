@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ServiceMonitoring.API.Controllers;
+using ServiceMonitoring.API.HubConfig;
 using ServiceMonitoring.Model;
 using ServiceMonitoring.Service;
 using ServiceMonitoring.Service.Contracts;
@@ -27,9 +28,20 @@ namespace ServiceMonitoring.API
         {
 
             services.AddControllers();
-            services.AddCors(c =>
+            //services.AddCors(c =>
+            //{
+            //    c.AddPolicy("AllowOrigin", options => options
+            //        .AllowAnyOrigin());
+            //});
+            services.AddCors(options =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                options.AddPolicy("ClientPermission", policy =>
+                {
+                    policy.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .WithOrigins("http://localhost:3000")
+                        .AllowCredentials();
+                });
             });
             services.AddSwaggerGen(c =>
             {
@@ -52,6 +64,7 @@ namespace ServiceMonitoring.API
             {
                 builder.UseSqlServer(Configuration["ConnectionStrings:ServiceMonitoring"]);
             });
+            services.AddSignalR();
 
         }
 
@@ -64,7 +77,8 @@ namespace ServiceMonitoring.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ServiceMonitoring.API v1"));
             }
-            app.UseCors(options => options.AllowAnyOrigin());
+            //app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors("ClientPermission");
             app.UseRouting();
 
             app.UseAuthorization();
@@ -72,6 +86,7 @@ namespace ServiceMonitoring.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<NotificationHub>("/notifications");
             });
         }
     }

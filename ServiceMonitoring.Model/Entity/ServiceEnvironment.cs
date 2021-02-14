@@ -32,9 +32,9 @@ namespace ServiceMonitoring.Model.Entity
         public bool FailedNotificationRequired { get; set; } = true;
         [Column(Order = 13)]
         public string NotificationMailIds { get; set; }
-        [Column(Order = 12)]
-        public Guid ServiceId { get; set; }
         [Column(Order = 14)]
+        public Guid ServiceId { get; set; }
+        [Column(Order = 15)]
         public Guid EnvironmentId { get; set; }
         public Service Service { get; set; }
         public Environment Environment { get; set; }

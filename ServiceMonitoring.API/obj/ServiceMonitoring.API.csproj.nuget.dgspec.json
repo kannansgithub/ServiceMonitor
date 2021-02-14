@@ -68,6 +68,10 @@
                 "NU1605"
               ]
             },
+            "Microsoft.AspNetCore.SignalR.Common": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -304,6 +308,10 @@
             "Serilog.Extensions.Logging.File": {
               "target": "Package",
               "version": "[2.0.0, )"
+            },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.2.8, )"
             }
           },
           "imports": [

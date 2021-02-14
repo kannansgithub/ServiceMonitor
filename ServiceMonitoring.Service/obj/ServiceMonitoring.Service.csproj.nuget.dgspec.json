@@ -207,6 +207,10 @@
             "Serilog.Extensions.Logging.File": {
               "target": "Package",
               "version": "[2.0.0, )"
+            },
+            "System.Linq.Dynamic.Core": {
+              "target": "Package",
+              "version": "[1.2.8, )"
             }
           },
           "imports": [

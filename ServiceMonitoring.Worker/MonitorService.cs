@@ -50,7 +50,12 @@ namespace ServiceMonitoring.Worker
                         ActionName = Watcher.ActionName,
                         SuccessfulStatus = watchResponse.SuccessfulStatus,
                         Message = watchResponse.Message,
-                        Description = watchResponse.Description
+                        Description = watchResponse.Description,
+                        NotificationEmailIds = item.NotificationMailIds,
+                        NotificationRequired = item.FailedNotificationRequired,
+                        ServiceName = item.ServiceName,
+                        EnvironmentName = item.Environment,
+                        Category = item.Category
                     };
 
                     try

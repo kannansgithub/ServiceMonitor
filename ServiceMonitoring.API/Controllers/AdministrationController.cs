@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
+using ServiceMonitoring.API.HubConfig;
 using ServiceMonitoring.API.Requests;
 using ServiceMonitoring.API.Responses;
+using ServiceMonitoring.Model.Models;
 using ServiceMonitoring.Service.Contracts;
+using System;
 using System.Threading.Tasks;
 
 namespace ServiceMonitoring.API.Controllers
@@ -15,49 +19,42 @@ namespace ServiceMonitoring.API.Controllers
         readonly ILogger _logger;
         readonly IWriteService _writeService;
         readonly IReadService _readService;
+        private readonly IHubContext<NotificationHub> _hub;
 
-
-        public AdministrationController(ILogger<AdministrationController> logger, IWriteService writeservice, IReadService readService)
+        public AdministrationController(ILogger<AdministrationController> logger, IWriteService writeService, IReadService readService, IHubContext<NotificationHub> hub)
         {
             _logger = logger;
-            _writeService = writeservice;
+            _writeService = writeService;
             _readService = readService;
+            _hub = hub;
         }
-#pragma warning restore CS1591
-
-        /// <summary>
-        /// Saves a result from service watch action
-        /// </summary>
-        /// <param name="request">Service status result</param>
-        /// <returns>Ok if save it was successfully, Not found if service not exists else server internal error</returns>
-        /// <response code="201">If service log was created successful</response>
-        /// <response code="500">If there was an internal server error</response>
         [HttpPost("CreateStatusLog")]
-        [ProducesResponseType(201)]
-        [ProducesResponseType(500)]
         public async Task<IActionResult> CreateStatusLog([FromBody] PostServiceStatusLogRequest request)
         {
-            _logger?.LogDebug("'{0}' has been invoked", nameof(CreateStatusLog));
             var response = await _writeService
                 .CreateStatusLogAsync(request.ToEntity(), request.ServiceEnvironmentId);
+            //if (request.SuccessfulStatus || !request.NotificationRequired)
+            //    return response.ToHttpCreatedResponse();
+            var notification = new NotificationResponse
+            {
+                Environment = request.EnvironmentName,
+                ServiceName = request.ServiceName
+            };
+            await _hub.Clients.All.SendAsync("GetNotify", $"{request.Category.GetIcon()}|{request.ServiceName}|{request.EnvironmentName}|{DateTime.Now.ToString("dd, MMMM yyyy hh:mm tt")}");
+            //if (string.IsNullOrWhiteSpace(request.NotificationEmailIds))
+            //{
+            //var emailIds = request.NotificationEmailIds.Split(',');
+            //TODO: Send an Email
+            //}
             return response.ToHttpCreatedResponse();
         }
-        /// <summary>
-        /// Gets service watcher items (registered services to watch with service monitor)
-        /// </summary>
-        /// <returns>A sequence of services to watch</returns>
-        /// <response code="200">A list of services to watch</response>
-        /// <response code="500">If there was an internal server error</response>
         [HttpGet("GetWatcherItem")]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(500)]
         public async Task<IActionResult> GetWatcherItem()
         {
-            _logger?.LogDebug("'{0}' has been invoked", nameof(GetWatcherItem));
-
             var response = await _readService.GetWatcherItem();
-
             return response.ToHttpResponse();
         }
+
+
     }
 }

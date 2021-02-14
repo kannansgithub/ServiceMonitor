@@ -15,6 +15,8 @@ namespace ServiceMonitoring.Core.Watchers
             var response = new WatchResponse();
             try
             {
+                response.NotificationEmailIds = parameter.Values["NotificationMailIds"];
+                response.NotificationRequired = Convert.ToBoolean(parameter.Values["FailedNotificationRequired"]);
                 using var httpClient = new HttpClient();
                 await httpClient.GetAsync(parameter.Values["Url"]);
                 response.SuccessfulStatus = true;

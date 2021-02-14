@@ -21,6 +21,8 @@ namespace ServiceMonitoring.Model.Models
         public string ServerName { get; set; }
         public bool FailedNotificationRequired { get; set; }
         public string NotificationMailIds { get; set; }
+        public string Category { get; set; }
+
 
     }
 }

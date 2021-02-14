@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using ServiceMonitoring.Core.Response;
 using ServiceMonitoring.Model;
 using ServiceMonitoring.Model.Models;
+using ServiceMonitoring.Model.Models.Paging;
 using ServiceMonitoring.Service.Contracts;
 using ServiceMonitoring.Service.Extensions;
 using System;
@@ -73,6 +74,43 @@ namespace ServiceMonitoring.Service
 
             return response;
         }
+
+        public async Task<SingleResponse<PagedList<ServiceLogResponse>>> GetServiceLogs(ServiceRequest request)
+        {
+            var response = new SingleResponse<PagedList<ServiceLogResponse>>();
+            try
+            {
+                if (request == null)
+                {
+                    throw new ArgumentNullException(nameof(request));
+                }
+
+                var collection = await Task.Factory.StartNew(() => _dbContext.GetServiceLogData(request.ServiceId, request.EnvironmentId));
+                if (!string.IsNullOrWhiteSpace(request.SearchQuery))
+                {
+                    var searchKey = request.SearchQuery.Trim();
+                    collection = collection.Where(a =>
+                        a.ServiceName.Contains(searchKey) || a.Description.Contains(searchKey));
+                }
+
+                //if (!string.IsNullOrWhiteSpace(request.OrderBy))
+                //{
+                //    var authorPropertyMappingDictionary =
+                //        _propertyMappingService.GetPropertyMapping<Models.AuthorDto, Author>();
+                //    collection = collection.ApplySort(request.OrderBy, authorPropertyMappingDictionary);
+                //}
+                response.Model = PagedList<ServiceLogResponse>.Create(collection,
+                    request.PageNumber,
+                    request.PageSize);
+            }
+            catch (Exception ex)
+            {
+                response.SetError(Logger, nameof(LoadDatabaseDataAsync), ex);
+            }
+
+            return response;
+        }
+
         public async Task<ListResponse<ServiceResponse>> GetServiceDataAsync(string categoryName, Guid? environmentId)
         {
             Logger?.LogDebug("'{0}' has been invoked", nameof(LoadDatabaseDataAsync));

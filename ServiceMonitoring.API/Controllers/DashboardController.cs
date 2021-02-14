@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ServiceMonitoring.API.Responses;
+using ServiceMonitoring.Model.Models;
 using ServiceMonitoring.Service.Contracts;
 using System;
 using System.Threading.Tasks;
@@ -50,7 +51,26 @@ namespace ServiceMonitoring.API.Controllers
             Logger?.LogDebug("'{0}' has been invoked", nameof(LoadDatabaseData));
 
             var response = await ReadService.LoadDatabaseDataAsync(environmentId);
-            return response.ToHttpCreatedResponse();
+            return response.ToHttpResponse();
+        }
+        [HttpGet(Name = "GetServiceLogs")]
+        [HttpHead]
+        public async Task<IActionResult> GetServiceLogs(
+            [FromQuery] ServiceRequest serviceRequestParameters)
+        {
+            var serviceLogFromRepo = await ReadService.GetServiceLogs(serviceRequestParameters);
+            if (serviceLogFromRepo.HasError || serviceLogFromRepo.Model == null)
+                return serviceLogFromRepo.ToHttpResponse();
+            var paginationMetadata = new
+            {
+                totalCount = serviceLogFromRepo.Model.TotalCount,
+                pageSize = serviceLogFromRepo.Model.PageSize,
+                currentPage = serviceLogFromRepo.Model.CurrentPage,
+                totalPages = serviceLogFromRepo.Model.TotalPages
+            };
+            //Response.Headers.Add("X-Pagination",
+            //    JsonSerializer.Serialize(paginationMetadata));
+            return serviceLogFromRepo.ToHttpResponse();
         }
     }
 }

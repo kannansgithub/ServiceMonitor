@@ -1,5 +1,6 @@
 ﻿using ServiceMonitoring.Core.Response;
 using ServiceMonitoring.Model.Models;
+using ServiceMonitoring.Model.Models.Paging;
 using System;
 using System.Threading.Tasks;
 
@@ -13,5 +14,6 @@ namespace ServiceMonitoring.Service.Contracts
         Task<ListResponse<DropdownValue>> GetAllEnvironment();
         Task<ListResponse<ServiceResponse>> GetServiceDataAsync(string categoryName, Guid? environmentId);
         Task<SingleResponse<DashboardInfo>> LoadDatabaseDataAsync(Guid? environmentId);
+        Task<SingleResponse<PagedList<ServiceLogResponse>>> GetServiceLogs(ServiceRequest request);
     }
 }

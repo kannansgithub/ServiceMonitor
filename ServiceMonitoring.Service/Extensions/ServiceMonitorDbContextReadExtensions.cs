@@ -23,6 +23,8 @@ namespace ServiceMonitoring.Service.Extensions
                     on serviceWatcher.WatcherId equals watcher.Id
                 join environment in dbContext.Environments
                     on serviceEnvironment.EnvironmentId equals environment.Id
+                join srvCat in dbContext.ServiceCategories
+                    on service.ServiceCategoryId equals srvCat.Id
                 select new ServiceWatcherItemInfo
                 {
                     ServiceEnvironmentId = serviceEnvironment.Id,
@@ -39,7 +41,9 @@ namespace ServiceMonitoring.Service.Extensions
                     NotificationMailIds = serviceEnvironment.NotificationMailIds,
                     PasswordKey = serviceEnvironment.PasswordKey,
                     ServerName = serviceEnvironment.ServerName,
-                    UsernameKey = serviceEnvironment.UsernameKey
+                    UsernameKey = serviceEnvironment.UsernameKey,
+                    Category = srvCat.Name
+
                 };
         }
 
@@ -99,7 +103,7 @@ namespace ServiceMonitoring.Service.Extensions
             }
             return new DashboardInfo
             {
-                DashValues = GetDashValues(dbContext, environmentId),
+                DashValues = GetDashValues(dbContext, environmentId).ToList(),
                 DashMonitoredServiceValues = GetDashMonitoredServiceValues(dbContext, environmentId),
                 DashOverviewServiceValues = GetDashOverviewServiceValues(dbContext, environmentId)
             };
@@ -112,21 +116,63 @@ namespace ServiceMonitoring.Service.Extensions
                 environmentId = dbContext.Environments.FirstOrDefault(x => x.Name.Contains("Dev"))?.Id;
             }
 
-            var query = from srv in dbContext.Services
+            var query =
+                        from srv in dbContext.Services
+                        join srvCat in dbContext.ServiceCategories on srv.ServiceCategoryId equals srvCat.Id
                         join srvEnv in dbContext.ServiceEnvironments on srv.Id equals srvEnv.ServiceId
+                        join env in dbContext.Environments on srvEnv.EnvironmentId equals env.Id
                         join srvStatus in dbContext.ServiceStatuses on srvEnv.Id equals srvStatus.ServiceEnvironmentId
-                        where srvEnv.EnvironmentId == environmentId && srv.IsActive
+                        where srvEnv.EnvironmentId == environmentId && srvCat.Name == categoryName && srv.IsActive
                         select new ServiceResponse
                         {
                             CurrentStatus = srvStatus.SuccessStatus,
                             LastMonitored = srvStatus.LastWatch.ToString("dd MMMM yyyy"),
                             NumberOfTimeMonitored = srvStatus.NumberOfWatch,
                             ServiceName = srv.Name,
-                            Description = srv.Description
+                            Description = srv.Description,
+                            ServiceId = srv.Id,
+                            Environment = env.Name,
 
                         };
             return query.OrderBy(x => x.ServiceName);
         }
+
+        public static async Task<ServiceStatus> GetServiceEnvironmentStatusByServiceEnvironmentAsync(this ServiceMonitoringDbContext dbContext, ServiceEnvironment entity)
+            => await dbContext.ServiceStatuses.FirstOrDefaultAsync(item => item.ServiceEnvironmentId == entity.Id);
+
+        public static IQueryable<ServiceLogResponse> GetServiceLogData(this ServiceMonitoringDbContext dbContext, Guid serviceId, Guid? environmentId)
+        {
+            if (environmentId == null || environmentId == Guid.Empty)
+            {
+                environmentId = dbContext.Environments.FirstOrDefault(x => x.Name.Contains("Dev"))?.Id;
+            }
+            if (serviceId == null || serviceId == Guid.Empty)
+                throw new ArgumentNullException(nameof(serviceId));
+            var query = from srv in dbContext.Services
+                        join srvCtg in dbContext.ServiceCategories on srv.ServiceCategoryId equals srvCtg.Id
+                        join srvEnv in dbContext.ServiceEnvironments on srv.Id equals srvEnv.ServiceId
+                        join env in dbContext.Environments on srvEnv.EnvironmentId equals env.Id
+                        join srvSta in dbContext.ServiceStatuses on srvEnv.Id equals srvSta.ServiceEnvironmentId
+                        join srvLogs in dbContext.ServiceStatusLogs on srvSta.Id equals srvLogs.ServiceStatusId
+                        where srv.IsActive == true && srv.Id == serviceId && srvEnv.EnvironmentId == environmentId
+                        select new ServiceLogResponse
+                        {
+                            Category = srvCtg.Name,
+                            Description = srv.Description,
+                            Environment = env.Name,
+                            LoggedDate = srvLogs.CreatedOn,
+                            Message = srvLogs.Message,
+                            Status = srvLogs.SuccessfulStatus,
+                            ServiceId = srv.Id,
+                            ServiceName = srv.Name
+                        };
+            return query;
+        }
+
+
+
+
+
         private static IQueryable<ServiceInfo> GetDashValues(ServiceMonitoringDbContext dbContext, Guid? environmentId)
         {
             var query = from svcCategory in dbContext.ServiceCategories
@@ -147,7 +193,7 @@ namespace ServiceMonitoring.Service.Extensions
         }
         private static IList<MonitoredServiceInfo> GetDashMonitoredServiceValues(ServiceMonitoringDbContext dbContext, Guid? environmentI)
         {
-            var data = GetDashValues(dbContext, environmentI);
+            var data = GetDashValues(dbContext, environmentI).ToList();
             var totalServices = data.Sum(x => x.Count);
             var monitored = new List<MonitoredServiceInfo>();
             foreach (var srv in data)
@@ -163,7 +209,7 @@ namespace ServiceMonitoring.Service.Extensions
             return monitored;
         }
 
-        private static IQueryable<ServiceOverViewInfo> GetDashOverviewServiceValues(ServiceMonitoringDbContext dbContext, Guid? environmentId)
+        private static List<ChartResponse> GetDashOverviewServiceValues(ServiceMonitoringDbContext dbContext, Guid? environmentId)
         {
             var query =
                 from srvStatusLog in dbContext.ServiceStatusLogs
@@ -172,23 +218,43 @@ namespace ServiceMonitoring.Service.Extensions
                 where srvStatus.IsActive && srvEnv.EnvironmentId == environmentId
                 select new
                 {
-                    createdDate = srvStatusLog.CreatedOn.Date,
                     srvStatusLog.SuccessfulStatus,
-                    srvStatusLog.Target
+                    Target = srvStatusLog.SuccessfulStatus ? "Working Services" : "Not-Working Services"
                 };
-            var groupedData = query.GroupBy(grp => new { grp.Target, grp.createdDate }).Select(data => new ServiceOverViewInfo
+            var groupedData = query.GroupBy(grp => new { grp.Target }).Select(data => new ServiceOverViewInfo
             {
                 label = data.Key.Target,
-                date = $"{data.Key.createdDate}",
                 data = data.Count()
+            }).ToList();
+            var response = new List<ChartResponse>();
+            groupedData.ForEach(x =>
+            {
+                var existingData = response.FirstOrDefault(chartResponse => chartResponse.label == x.label);
+                if (existingData == null)
+                {
+                    response.Add(new ChartResponse
+                    {
+                        label = x.label,
+                        data = new List<int> { x.data }
+                    });
+                }
+                else
+                {
+                    existingData.data.Add(x.data);
+                }
             });
-            return groupedData;
+            var random = new Random();
+            for (var i = 0; i < 50; i++)
+            {
+                response.ForEach(x => x.data.Add(random.Next(1000)));
+
+            }
+            return response;
         }
-        private static decimal GetPercentage(int total, int serviceCount)
+        private static decimal GetPercentage(decimal total, decimal serviceCount)
         {
             return (serviceCount / total) * 100;
         }
-        public static async Task<ServiceStatus> GetServiceEnvironmentStatusByServiceEnvironmentAsync(this ServiceMonitoringDbContext dbContext, ServiceEnvironment entity)
-            => await dbContext.ServiceStatuses.FirstOrDefaultAsync(item => item.ServiceEnvironmentId == entity.Id);
+
     }
 }

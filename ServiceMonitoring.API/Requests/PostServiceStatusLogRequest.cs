@@ -19,5 +19,10 @@ namespace ServiceMonitoring.API.Requests
         public string Message { get; set; }
 
         public string Description { get; set; }
+        public string Category { get; set; }
+        public string ServiceName { get; set; }
+        public string EnvironmentName { get; set; }
+        public bool NotificationRequired { get; set; }
+        public string NotificationEmailIds { get; set; }
     }
 }
